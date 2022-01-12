@@ -19,6 +19,7 @@ const recipeSchema = new Schema({
   label: {type: String, required: true},
   url: {type: String, required: true},
   img: {type: String, required: true},
+  thumbnail: {type: String, required: true},
   calories: {type: Number, required: true},
   totalTime: {type: Number, required: true}
 });

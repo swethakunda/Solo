@@ -35,6 +35,8 @@ module.exports = {
   },
   devServer: {
     static: {
+      // for react-router-dom
+      //historyApiFallback: true,
       // cause webpack-dev-server creates another bundle.js and adds it to the html file, 
       // check in dev tools -> Sources -> index on line 5 may be ...
       publicPath: '/dist/',

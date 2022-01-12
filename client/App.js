@@ -1,44 +1,24 @@
 import React, { useEffect, useState } from "react";
+import {Route, Routes, Link} from "react-router-dom";
 import ListRecipes from "./components/ListRecipes";
-import Recipe from "./components/Recipe";
+import SearchRecipes from "./components/SearchRecipe";
 
 const App = () => {
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-
-  const getRecipes =  (e) => {
-
-    e.preventDefault();
-    setSearchTerm('');
-    /*fetch (`/recipes/${searchTerm}`)
-      .then(data => data.json())
-      .then(data => console.log('AAAA', data));*/
-    const appID = '4b6f74d0';
-    const appKey = 'e745526e12db6881f707320becf348a3';
-    const requestString = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchTerm}&app_id=${appID}&app_key=${appKey}`;
-
-    fetch(requestString)
-     .then(data => data.json())
-     .then(data => {console.log(data.hits); setSearchResults(data.hits)});
-  }
-
   return ( 
     <div>
-        <h1>Hello React</h1>
-        <form className="search-form" onSubmit={getRecipes}>
-          <input className="search-bar" type="text"
-            onChange={e => setSearchTerm(e.target.value )}/>
-          <button className="search-button" type="submit">Search</button>
-        </form>
-        <ListRecipes />
-        <div className="search-results">
-          {
-            searchResults.map(recipe => (
-              <Recipe info={recipe.recipe}/>
-            ))
-          }
-        </div>
+      <h1>Healthy Table</h1>
+
+      <ul className="header">
+        <li><Link to='/search'>Search</Link></li>
+        <li><Link to='list'>List</Link></li>
+      </ul>
+
+      <Routes>
+        <Route path='/search' element={<SearchRecipes/>} />
+        <Route path='/list' element={<ListRecipes/>} />
+      </Routes>
+        
     </div>
   );
 

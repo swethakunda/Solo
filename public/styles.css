@@ -1,9 +1,39 @@
 body {
-  background-color: rgb(100, 95, 95);
+  background-color: #ceccc5;
+  padding: 20px;
+  margin: 0;
+}
+h1, h2, p, ul, li {
+  font-family: sans-serif;
+}
+h1 {
+  color: rgb(71, 70, 70);
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  background-color: rgb(71, 70, 70);
+  padding: 0;
+}
+ul.header li a {
+  color: rgb(245, 225, 225);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px 40px;
+  display: inline-block;
+}
+th, td {
+  border: 1px solid rgb(71, 70, 70);
+  border-radius: 5px;
+  margin: 0px 0px;
+  padding: 5px 5px;
 }
 
 .search-results {
-  background-color: rgb(247, 217, 222);
+  background-color: rgb(236, 243, 194);
   width: 50%;
   display: flex;
   flex-direction: column;

@@ -9,7 +9,7 @@ const Recipe = (props) =>
     console.log("AAAAA", props.info)
     fetch ('/addRecipe',{
       method: 'POST',
-      body: JSON.stringify({ recipe: props.info }),
+      body: JSON.stringify({ recipe: props.info, ingredient: 'peas'}),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(data => data.json())
