@@ -15,14 +15,15 @@ const recipeController = require('./controllers/recipeController');
 // statically serve everything in the dist folder on the route '/dist'
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
-app.get('/public/styles.css', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../public/styles.css'));
-})
+// app.get('/public/styles.css', (req, res) => {
+//   res.status(200).sendFile(path.join(__dirname, '../public/styles.css'));
+// })
+
 
 // serve index.html on the route '/'
-app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-});
+// app.get('/', (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+// });
 
 /*app.get('/recipes/:search', async (req, res) => {
   const appID = '4b6f74d0';
@@ -42,6 +43,10 @@ app.post('/addRecipe', recipeController.addRecipe, (req, res) => {
 })
 
 app.get('/getRecipes', recipeController.getRecipes, (req, res) => {
+  return res.status(200).json(res.locals.recipes);
+})
+
+app.delete('/deleteRecipe/:id', recipeController.deleteRecipe, (req, res) => {
   return res.status(200).json(res.locals.recipes);
 })
 

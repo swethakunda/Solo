@@ -24,20 +24,22 @@ const SearchRecipes = (props) =>
   }
 
   return (
-    <div>
-      Search Recipes
-        <form className="search-form" onSubmit={getRecipes}>
-          <input className="search-bar" type="text"
-            onChange={e => setSearchTerm(e.target.value )}/>
-          <button className="search-button" type="submit">Search</button>
-        </form>
-        <div className="search-results">
-          {
-            searchResults.map(recipe => (
-              <Recipe info={recipe.recipe}/>
-            ))
-          }
-        </div>
+    <div className='contents'>
+      
+      <form className="search-form" onSubmit={getRecipes}>
+        <input className="search-bar" type="text"
+          onChange={e => setSearchTerm(e.target.value )}/>
+        <button className="search-button" type="submit">Search</button>
+      </form>
+
+      <div className="search-results">
+        {
+          searchResults.map((recipe, i) => (
+            <Recipe key={i} info={recipe.recipe}/>
+          ))
+        }
+      </div>
+
     </div>
   );
 }

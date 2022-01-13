@@ -1,10 +1,11 @@
-import React from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, {useState} from "react";
+import AddRecipePopUp from "./AddRecipePopUp";
 
 const Recipe = (props) => 
 {
 
-  
+  const [popUp, setPopUp] = useState(false);
+
   const addRecipe = () => {
     console.log("AAAAA", props.info)
     fetch ('/addRecipe',{
@@ -13,15 +14,33 @@ const Recipe = (props) =>
       headers: { 'Content-Type': 'application/json' }
     })
       .then(data => data.json())
-      .then(data => console.log('AAAA', data));
+      .then(data => console.log('recipe added to DB', data));
   }
 
   return (
     <div>
-      <h1>{props.info.label}</h1>
+      <h1><a href={props.info.url}>{props.info.label}</a></h1>
       <p>Calories: {Math.floor(props.info.calories)}</p>
-      <img src={props.info.image} alt=""/>
-      <button onClick={addRecipe}> Add to my Collection</button>
+      
+      <div className="recipe-card">
+        <img src={props.info.image} alt=""/>
+        
+        <div>
+          Ingredients:
+          <ul>{props.info.ingredientLines.map( (item, i) => (
+          <li key={i}>{item}</li>
+          ))}</ul>
+          <></>
+          Recipe:
+        </div>
+      </div>
+      
+      <br/>
+      <button onClick={addRecipe/*setPopUp(true)*/}> Add to my Collection</button>
+
+      <AddRecipePopUp trigger={popUp} setTrigger={setPopUp}>
+        <h3>Pop Up</h3>
+      </AddRecipePopUp>
     </div>
   )
 }

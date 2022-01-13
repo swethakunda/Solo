@@ -10,13 +10,15 @@ const App = () => {
       <h1>Healthy Table</h1>
 
       <ul className="header">
-        <li><Link to='/search'>Search</Link></li>
-        <li><Link to='list'>List</Link></li>
+        <li><Link to='search'>Search</Link></li>
+        <li><Link to='list'>My Collection</Link></li>
+        <li><Link to='calender'>Calendar</Link></li>
       </ul>
 
       <Routes>
         <Route path='/search' element={<SearchRecipes/>} />
         <Route path='/list' element={<ListRecipes/>} />
+        <Route path='/calendar'/>
       </Routes>
         
     </div>

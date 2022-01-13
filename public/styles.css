@@ -1,13 +1,28 @@
+:root{
+  --dark: rgb(70, 70, 70);
+  --light: #ceccc5;
+}
+
 body {
-  background-color: #ceccc5;
+  background: url("bg1.jpg") no-repeat center;
+  background-color: var(--light);
   padding: 20px;
   margin: 0;
 }
-h1, h2, p, ul, li {
+
+h1, h2, p, ul, li, * {
   font-family: sans-serif;
+  color: var(--dark);
 }
 h1 {
-  color: rgb(71, 70, 70);
+  color: var(--dark);
+}
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+h1 a:hover {
+  text-decoration: underline;
 }
 ul.header li {
   display: inline;
@@ -15,26 +30,47 @@ ul.header li {
   margin: 0;
 }
 ul.header {
-  background-color: rgb(71, 70, 70);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
   padding: 0;
 }
 ul.header li a {
-  color: rgb(245, 225, 225);
+  color: var(--light);
   font-weight: bold;
   text-decoration: none;
   padding: 20px 40px;
   display: inline-block;
 }
+
 th, td {
-  border: 1px solid rgb(71, 70, 70);
+  border: 1px solid var(--dark);
   border-radius: 5px;
   margin: 0px 0px;
   padding: 5px 5px;
 }
-
+td a {
+  text-decoration: none;
+}
+td a:hover {
+  text-decoration: underline;
+}
+.recipe-card {
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+}
 .search-results {
-  background-color: rgb(236, 243, 194);
+  /* background-color: rgb(86, 90, 61); */
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.contents {
   display: flex;
   flex-direction: column;
   align-items: center;
