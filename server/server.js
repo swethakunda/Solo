@@ -2,9 +2,23 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const fetch = require('node-fetch');
+const mongoose = require('mongoose');
 
 const recipeController = require('./controllers/recipeController');
 
+//===================DATABSE CONNECTION=======================
+const MONGO_URI = 'mongodb+srv://starwars:starwars13@cluster0.zssxb.mongodb.net/recipesDatabase?retryWrites=true&w=majority';
+
+mongoose.connect(MONGO_URI, {
+  // options for the connect method to parse the URI
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // sets the name of the DB that our collections are part of
+  dbName: 'recipesDatabase'
+})
+  .then(() => console.log('Connected to Mongo DB.'))
+  .catch(err => console.log(err));
+//===========================================================
 
 /**
  * handle parsing request body

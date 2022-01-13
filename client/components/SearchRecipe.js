@@ -29,7 +29,7 @@ const SearchRecipes = (props) =>
     <div className='contents'>
       
       <form className="search-form" onSubmit={getRecipes}>
-        <input className="search-bar" type="text"
+        <input className="search-bar" type="text" style={{marginRight: "10px"}} placeholder="Type an ingredient"
           onChange={e => setSearchTerm(e.target.value )}/>
         <button className="search-button" type="submit">Search</button>
       </form>

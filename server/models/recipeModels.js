@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI = 'mongodb+srv://starwars:starwars13@cluster0.zssxb.mongodb.net/recipesDatabase?retryWrites=true&w=majority';
+/*const MONGO_URI = 'mongodb+srv://starwars:starwars13@cluster0.zssxb.mongodb.net/recipesDatabase?retryWrites=true&w=majority';
 
 mongoose.connect(MONGO_URI, {
   // options for the connect method to parse the URI
@@ -10,7 +10,7 @@ mongoose.connect(MONGO_URI, {
   dbName: 'recipesDatabase'
 })
   .then(() => console.log('Connected to Mongo DB.'))
-  .catch(err => console.log(err));
+  .catch(err => console.log(err));*/
 
 const Schema = mongoose.Schema;
 
