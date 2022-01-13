@@ -1,20 +1,24 @@
 import React, {useState} from "react";
-import AddRecipePopUp from "./AddRecipePopUp";
+
 
 const Recipe = (props) => 
 {
 
-  const [popUp, setPopUp] = useState(false);
-
   const addRecipe = () => {
-    console.log("AAAAA", props.info)
+    console.log("AAAAA", props)
     fetch ('/addRecipe',{
       method: 'POST',
-      body: JSON.stringify({ recipe: props.info, ingredient: 'peas'}),
+      body: JSON.stringify({ recipe: props.info, ingredient: props.ingredient}),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(data => data.json())
       .then(data => console.log('recipe added to DB', data));
+  }
+
+  const twoFunctions = () => {
+    console.log("WHYYYYYY", props.ingredient);
+    props.setTrigger(true);
+    addRecipe();
   }
 
   return (
@@ -36,11 +40,8 @@ const Recipe = (props) =>
       </div>
       
       <br/>
-      <button onClick={addRecipe/*setPopUp(true)*/}> Add to my Collection</button>
-
-      <AddRecipePopUp trigger={popUp} setTrigger={setPopUp}>
-        <h3>Pop Up</h3>
-      </AddRecipePopUp>
+      <button onClick={addRecipe}> Add to my Collection</button>
+      {/* <button onClick={twoFunctions}> Add to my Collection</button> */}
     </div>
   )
 }

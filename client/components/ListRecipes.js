@@ -30,6 +30,7 @@ const ListRecipes = (props) =>
 
   return (
     <div className="contents">
+      <br/><br/><br/><br/>
       <table className="list">
         <thead>
           <tr key={"header"}>

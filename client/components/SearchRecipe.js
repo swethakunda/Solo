@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import Recipe from "./Recipe";
-import { useEffect } from "react/cjs/react.development";
+// import AddRecipePopUp from "./AddRecipePopUp";
 
 const SearchRecipes = (props) => 
 {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  // const [popUp, setPopUp] = useState(false);
+  // const [ingredient, setIngredient] = useState('');
 
   const getRecipes =  (e) => {
 
     e.preventDefault();
-    setSearchTerm('');
+    // setSearchTerm('');
     /*fetch (`/recipes/${searchTerm}`)
       .then(data => data.json())
       .then(data => console.log('AAAA', data));*/
@@ -35,10 +37,15 @@ const SearchRecipes = (props) =>
       <div className="search-results">
         {
           searchResults.map((recipe, i) => (
-            <Recipe key={i} info={recipe.recipe}/>
+            // <Recipe key={i} info={recipe.recipe} setTrigger={setPopUp} ingredient={ingredient}/>
+            <Recipe key={i} info={recipe.recipe} ingredient={searchTerm}/>
           ))
         }
       </div>
+
+      {/* <AddRecipePopUp trigger={popUp} setTrigger={setPopUp} setIngredient={setIngredient}>
+    
+      </AddRecipePopUp> */}
 
     </div>
   );
