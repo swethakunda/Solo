@@ -60,8 +60,22 @@ app.get('/getRecipes', recipeController.getRecipes, (req, res) => {
   return res.status(200).json(res.locals.recipes);
 })
 
-app.delete('/deleteRecipe/:id', recipeController.deleteRecipe, (req, res) => {
+app.delete('/deleteRecipe/:id', 
+            recipeController.deleteRecipe, 
+            recipeController.getRecipes, 
+            (req, res) => {
   return res.status(200).json(res.locals.recipes);
+})
+
+app.get('/getMeals', recipeController.getMeals, (req, res) => {
+  return res.status(200).json(res.locals.meals);
+})
+
+app.post('/addMeal', 
+          recipeController.addMeal, 
+          recipeController.getMeals,
+          (req, res) => {
+  return res.status(200).json(res.locals.meals);
 })
 
 // global error handler

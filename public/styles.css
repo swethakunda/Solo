@@ -60,6 +60,7 @@ td a:hover {
   color: var(--dark);
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 .search-results {
   /* background-color: rgb(86, 90, 61); */

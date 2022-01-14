@@ -22,7 +22,9 @@ const SearchRecipes = (props) =>
 
     fetch(requestString)
      .then(data => data.json())
-     .then(data => {console.log(data.hits); setSearchResults(data.hits)});
+     .then(data => {
+       console.log(data.hits); 
+       setSearchResults(data.hits)});
   }
 
   return (
